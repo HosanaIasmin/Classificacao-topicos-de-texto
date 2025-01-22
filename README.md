@@ -6,22 +6,6 @@ Este projeto utiliza **BERTopic** para identificar e classificar ocorrências de
 
 O objetivo é criar um modelo capaz de classificar automaticamente relatos de desastres naturais, permitindo que equipes de resposta rápida priorizem ações com base nos tipos de ocorrências relatadas.
 
----
-
-## 📂 Estrutura do Projeto
-
-├── data/ 
-│   ├── disaster_phrases.csv # Dataset usado no treinamento 
-├── src/ 
-│   ├── model_training.py # Script principal de treinamento do modelo 
-│   ├── utils.py # Funções auxiliares 
-├── tests/ 
-│   ├── test_model.py # Testes unitários do modelo 
-├── requirements.txt # Dependências do projeto 
-├── ci.yml # Pipeline de CI/CD 
-├── README.md # Documentação do projeto 
-└── LICENSE # Licença
-
 
 ---
 
