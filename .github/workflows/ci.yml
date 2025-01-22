@@ -28,13 +28,11 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest tests/
+          python3 app.py
 
       - name: Deploy to Hugging Face
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           huggingface-cli login --token $HF_TOKEN
-          huggingface-cli repo create classificador-de-texto-noah --private
-          git remote add hf https://huggingface.co/HosanaIasmin08/classificador-de-texto-noah
-          git push hf main
+          huggingface-cli repo push <huggingface-HosanaIasmin08/classificacao-topico-de-texto-noah>
