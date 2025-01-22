@@ -1,0 +1,6 @@
+nltk
+scikit-learn
+sentence-transformers
+umap-learn
+hdbscan
+bertopic
