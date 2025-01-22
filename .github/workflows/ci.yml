@@ -31,8 +31,8 @@ jobs:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           huggingface-cli login --token $HF_TOKEN
-          git config --global user.email "hosana.castro048@gmail.com"
-          git config --global user.name "HosanaIasmin"
+          git config --global user.email "iasmin@webonesystem.com.br"
+          git config --global user.name "iasminWebOne"
           git clone https://huggingface.co/spaces/HosanaIasmin08/classificacao-topico-de-texto-noah
           rsync -av --exclude='classificacao-topico-de-texto-noah' . classificacao-topico-de-texto-noah/
           cd classificacao-topico-de-texto-noah
