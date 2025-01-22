@@ -36,6 +36,7 @@ jobs:
           git clone https://huggingface.co/spaces/HosanaIasmin08/classificacao-topico-de-texto-noah
           rsync -av --exclude='classificacao-topico-de-texto-noah' . classificacao-topico-de-texto-noah/
           cd classificacao-topico-de-texto-noah
+          git remote set-url origin https://$GH_PAT@github.com/HosanaIasmin/Classificacao-topicos-de-texto.git
           git add .
           git commit -m "Update space with new model"
           git push
