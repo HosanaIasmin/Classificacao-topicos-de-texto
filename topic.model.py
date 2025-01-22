@@ -6,11 +6,10 @@ from umap import UMAP
 import hdbscan
 from bertopic import BERTopic
 
-# Baixar as stop words em português
 nltk.download('stopwords')
 stop_words = stopwords.words('portuguese')
 
-# Dados de exemplo simples
+
 docs = [
 "Estou vendo um deslizamento de terra bloquear a estrada principal, precisamos de ajuda urgente!",
 "O morro está desmoronando por causa das chuvas fortes, alertem as autoridades imediatamente!",
@@ -42,25 +41,22 @@ docs = [
 "O tornado está aqui, está arrancando telhados e árvores, precisamos de ajuda urgente!"
 ]
 
-# Usar SentenceTransformers para gerar embeddings
+
 model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
 embeddings = model.encode(docs, show_progress_bar=True)
 
-# Configurar o modelo UMAP
 umap_model = UMAP(n_neighbors=5, n_components=2, metric='cosine')
 
-# Configurar o modelo HDBSCAN
+
 hdbscan_model = hdbscan.HDBSCAN(min_samples=2, min_cluster_size=2, prediction_data=True)
 
-# Vocabulário expandido para desastres naturais
 vocabulary = [
     'deslizamento', 'terremoto', 'incêndio', 'tempestade', 'seca', 'tornado', 'tsunami'
 ]
 
-# Criar o vectorizer com o vocabulário expandido
 vectorizer_model = CountVectorizer(stop_words=stop_words, vocabulary=vocabulary)
 
-# Criar e treinar o modelo BERTopic com os modelos UMAP e HDBSCAN ajustados
+
 topic_model = BERTopic(
     language="multilingual", 
     umap_model=umap_model, 
@@ -68,13 +64,11 @@ topic_model = BERTopic(
     vectorizer_model=vectorizer_model
 )
 
-# Treinar o modelo
 topics, probs = topic_model.fit_transform(docs, embeddings)
 
-# Exibir os tópicos
+
 all_topics = topic_model.get_topics()
 for topic_id, topic_words in all_topics.items():
     print(f"Tópico {topic_id}: {topic_words}")
 
-# Salvar o modelo
 topic_model.save("desastres_model")
