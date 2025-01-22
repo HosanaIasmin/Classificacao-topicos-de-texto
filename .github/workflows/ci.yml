@@ -31,4 +31,11 @@ jobs:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           huggingface-cli login --token $HF_TOKEN
-          huggingface-cli repo push <huggingface-HosanaIasmin08/classificacao-topico-de-texto-noah>
+          git config --global user.email "hosana.castro048@gmail.com"
+          git config --global user.name "HosanaIasmin"
+          git clone https://huggingface.co/spaces/HosanaIasmin08/classificacao-topico-de-texto-noah
+          rsync -av --exclude='classificacao-topico-de-texto-noah' . classificacao-topico-de-texto-noah/
+          cd classificacao-topico-de-texto-noah
+          git add .
+          git commit -m "Update space with new model"
+          git push
