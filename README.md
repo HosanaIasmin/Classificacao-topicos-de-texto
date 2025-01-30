@@ -48,8 +48,11 @@ Exemplo de frases:
 ### 1️⃣ Clonar o Repositório
 
 ```bash
-git clone https://github.com/username/disaster-classification.git
-cd disaster-classification
+git clone https://github.com/HosanaIasmin/Classificacao-topicos-de-texto.git
+cd Classificacao-topicos-de-texto/
 
 ##Instalar Dependências
 pip install -r requirements.txt
+
+##Executar gradio
+python3 app.py
