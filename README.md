@@ -53,14 +53,3 @@ cd disaster-classification
 
 ##Instalar Dependências
 pip install -r requirements.txt
-
-#Treinar o modelo
-python src/model_training.py
-
-#testar o modelo
-pytest tests/test_model.py
-
-#Deploy no HUgging Face Spaces
-huggingface-cli login
-huggingface-cli repo create disaster-classification --type=space
-git push hf main
